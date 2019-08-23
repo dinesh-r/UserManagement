@@ -1,0 +1,71 @@
+SET IDENTITY_INSERT [dbo].[State] ON;
+
+
+WITH StateCTE(StateId,CountryId, Name, Code)
+AS
+(
+
+SELECT	1	,	840	,'Alabama','AL'UNION ALL
+SELECT	2	,	840	,'Alaska','AK'UNION ALL
+SELECT	3	,	840	,'Arizona','AZ'UNION ALL
+SELECT	4	,	840	,'Arkansas','AR'UNION ALL
+SELECT	5	,	840	,'California','CA'UNION ALL
+SELECT	6	,	840	,'Colorado','CO'UNION ALL
+SELECT	7	,	840	,'Connecticut','CT'UNION ALL
+SELECT	8	,	840	,'Delaware','DE'UNION ALL
+SELECT	9	,	840	,'Florida','FL'UNION ALL
+SELECT	10	,	840	,'Georgia','GA'UNION ALL
+SELECT	11	,	840	,'Hawaii','HI'UNION ALL
+SELECT	12	,	840	,'Idaho','ID'UNION ALL
+SELECT	13	,	840	,'Illinois','IL'UNION ALL
+SELECT	14	,	840	,'Indiana','IN'UNION ALL
+SELECT	15	,	840	,'Iowa','IA'UNION ALL
+SELECT	16	,	840	,'Kansas','KS'UNION ALL
+SELECT	17	,	840	,'Kentucky','KY'UNION ALL
+SELECT	18	,	840	,'Louisiana','LA'UNION ALL
+SELECT	19	,	840	,'Maine','ME'UNION ALL
+SELECT	20	,	840	,'Maryland','MD'UNION ALL
+SELECT	21	,	840	,'Massachusetts','MA'UNION ALL
+SELECT	22	,	840	,'Michigan','MI'UNION ALL
+SELECT	23	,	840	,'Minnesota','MN'UNION ALL
+SELECT	24	,	840	,'Mississippi','MS'UNION ALL
+SELECT	25	,	840	,'Missouri','MO'UNION ALL
+SELECT	26	,	840	,'Montana','MT'UNION ALL
+SELECT	27	,	840	,'Nebraska','NE'UNION ALL
+SELECT	28	,	840	,'Nevada','NV'UNION ALL
+SELECT	29	,	840	,'New Hampshire','NH'UNION ALL
+SELECT	30	,	840	,'New Jersey','NJ'UNION ALL
+SELECT	31	,	840	,'New Mexico','NM'UNION ALL
+SELECT	32	,	840	,'New York','NY'UNION ALL
+SELECT	33	,	840	,'North Carolina','NC'UNION ALL
+SELECT	34	,	840	,'North Dakota','ND'UNION ALL
+SELECT	35	,	840	,'Ohio','OH'UNION ALL
+SELECT	36	,	840	,'Oklahoma','OK'UNION ALL
+SELECT	37	,	840	,'Oregon','OR'UNION ALL
+SELECT	38	,	840	,'Pennsylvania','PA'UNION ALL
+SELECT	39	,	840	,'Rhode Island','RI'UNION ALL
+SELECT	40	,	840	,'South Carolina','SC'UNION ALL
+SELECT	41	,	840	,'South Dakota','SD'UNION ALL
+SELECT	42	,	840	,'Tennessee','TN'UNION ALL
+SELECT	43	,	840	,'Texas','TX'UNION ALL
+SELECT	44	,	840	,'Utah','UT'UNION ALL
+SELECT	45	,	840	,'Vermont','VT'UNION ALL
+SELECT	46	,	840	,'Virginia','VA'UNION ALL
+SELECT	47	,	840	,'Washington','WA'UNION ALL
+SELECT	48	,	840	,'West Virginia','WV'UNION ALL
+SELECT	49	,	840	,'Wisconsin','WI'UNION ALL
+SELECT	50	,	840	,'Wyoming','WY'
+
+)
+
+INSERT [dbo].[State] (StateId,CountryId, Name, Code)
+SELECT StateId,CountryId, Name, Code
+FROM StateCTE
+WHERE NOT EXISTS (SELECT NULL as [empty] FROM [dbo].[State] WHERE StateId = StateCTE.StateId)
+;
+
+ SET IDENTITY_INSERT [dbo].[State] OFF
+
+GO
+
+

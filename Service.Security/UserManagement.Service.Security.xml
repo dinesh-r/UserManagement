@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UserManagement.Service.Security</name>
+    </assembly>
+    <members>
+        <member name="T:UserManagement.Service.Security.V1.Managers.CommonManager">
+            <summary>
+            Service Manager class for Configuring Common.
+            </summary>
+        </member>
+    </members>
+</doc>

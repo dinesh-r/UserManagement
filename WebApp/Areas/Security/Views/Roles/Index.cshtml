@@ -1,0 +1,19 @@
+﻿@inject IViewLocalizer L
+@model RoleSearchModel
+@{
+    ViewData["Title"] = L["Roles"];
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <table id="RoleGrid" class="table table-striped table-bordered" style="width:100%"></table>
+</p>
+
+@section Scripts {
+    <script>
+        $(function () {
+            loadRoleGrid('@L["Name"]', '@L["Description"]');
+        });
+    </script>
+}
